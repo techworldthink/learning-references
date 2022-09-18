@@ -8,20 +8,8 @@
 
 
 
-&lt;ul&gt;
-  &lt;li&gt;{{message}}&lt;/li&gt;
-  &lt;li&gt;{{message | uppercase}}&lt;/li&gt;
-  &lt;li&gt;{{message | lowercase}}&lt;/li&gt;
-  &lt;li&gt;{{date | date}}&lt;/li&gt;
-  &lt;li&gt;{{date | date:'fullDate'}}&lt;/li&gt;
-&lt;/ul&gt;
+&lt;a routerLink=""&gt;Home&lt;/a&gt;
+&lt;a routerLink="about"&gt;About&lt;/a&gt;
+&lt;a routerLink="user"&gt;User&lt;/a&gt;
 
-&lt;h1&gt;Pipes Advance&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;{{message | slice :3:8}}&lt;/li&gt;
-  &lt;li&gt;{{user | json}}&lt;/li&gt;
-  &lt;li&gt;{{user | json | uppercase}}&lt;/li&gt;
-  &lt;li&gt;{{003.3500 | number:'1.2-3'}}&lt;/li&gt;
-  &lt;li&gt;{{100 | currency}}&lt;/li&gt;
-  &lt;li&gt;{{100 | currency:'INR'}}&lt;/li&gt;
-&lt;/ul&gt;
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
