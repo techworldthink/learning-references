@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&display=swap');
+
+body {
+    padding-left: 1em;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: green;
+    border-bottom: 1px solid gray;
+    padding-bottom: 1em;
+}
+
+h2 {
+    color: #1d2558;
+    font-weight: 100;
+    text-align: center;
+    margin-top: 2em;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 37px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: none;
+    background-color: white;
+    border-left: 2px solid #c61e4a;
+    padding-left: .5em;
+    margin-top: 3em;
+}
+
+pre,
+code {
+    color: #ccc;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+
+    margin: 0.5em 0;
+    overflow: auto;
+    background: white;
+}
+
+pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: red;
+}
+
+pre{
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+    padding: 10px;
+}
+
+b,
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    margin-top: 2em;
+    display: block;
+    color: gray;
+    font-weight: 100;
+    line-height: 30px;
+}
+
+i {
+    color: gray;
+}
+
+.blue {
+    color: blue;
+}
+
+.pink {
+    color: #363434;
+    background-color: #27272740;
+    display: block;
+    width: fit-content;
+}
+
+.left {
+    text-align: left;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    margin: 0%;
+}
+
+.black {
+    color: black;
+}
+
+.pheads {
+    display: inline-block;
+    border-bottom: 2px solid red;
+    color: black;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 50%;
+}
+
+@media only screen and (max-width: 726px) {
+    img {
+        width: 100%;
+    }
+}
