@@ -85,6 +85,113 @@ users=['A','B','C'];
     {name:'C',email:'c@gmail.com',phone:'333'},
   ];
 </code></pre>
+
+<h3>4.1 Button Click</h3>
+<pre><code class="code-html">
+<i># html</i>
+&lt;button (click)="changeColor()" &gt; Dark Mode &lt;/button&gt;
+
+<i># ts</i>
+color = 'red';
+changeColor() {
+    this.color = 'black';
+  }
+</code></pre>
+
+
+<h3>5.1 Form - Template Driven Form</h3>
+<pre><code class="code-html">
+<i># html</i>
+&lt;form #basicForm="ngForm" (submit) = "getData(basicForm.value)"&gt;
+  &lt;input type="text" ngModel name="user" placeholder="username" /&gt;
+  &lt;br/&gt;&lt;br/&gt;
+  &lt;input type="text" ngModel name="email" placeholder="email" /&gt;
+  &lt;br/&gt;&lt;br/&gt;
+  &lt;input type="text" ngModel name="password" placeholder="password" /&gt;
+  &lt;br/&gt;&lt;br/&gt;
+  &lt;button&gt;Register&lt;/button&gt;
+&lt;/form&gt;
+
+<i># ts</i>
+userData:any = {};
+getData(data: NgForm) {
+  console.warn(data);
+  this.userData = data;
+  console.warn(this.userData.user);
+}
+</code></pre>
+
+
+<h3>5.2 Form - Reactive Form</h3>
+<pre><code class="code-html">
+<i># html</i>
+&lt;form [formGroup]="loginForm" (ngSubmit)="loginUser()"&gt;
+  &lt;input type="text" placeholder="Name" formControlName="user"/&gt;
+  &lt;br /&gt;
+  &lt;span *ngIf="user && user.invalid && user.touched"&gt;this input field is not valid&lt;/span&gt;
+  &lt;br /&gt;
+  &lt;input type="password" placeholder="Password" formControlName="pass"/&gt;
+  &lt;br /&gt;
+  &lt;span *ngIf="pass && pass.invalid && pass.touched"&gt;this input field is not valid&lt;/span&gt;
+  &lt;br /&gt;
+  &lt;button &gt;Login&lt;/button&gt;
+&lt;/form&gt;
+
+<i># ts</i>
+loginUser() {
+    console.warn(this.loginForm.value);
+  }
+</code></pre>
+
+<h3>5.3 Form - Reactive Form - validation</h3>
+<pre><code class="code-html">
+<i># html</i>
+&lt;form [formGroup]="loginForm" (ngSubmit)="loginUser()"&gt;
+  &lt;input type="text" placeholder="Name" formControlName="user"/&gt;
+  &lt;br /&gt;
+  &lt;span *ngIf="user && user.invalid && user.touched"&gt;this input field is not valid&lt;/span&gt;
+  &lt;br /&gt;
+  &lt;input type="password" placeholder="Password" formControlName="pass"/&gt;
+  &lt;br /&gt;
+  &lt;span *ngIf="pass && pass.invalid && pass.touched"&gt;this input field is not valid&lt;/span&gt;
+  &lt;br /&gt;
+  &lt;button [disabled]="loginForm.invalid"&gt;Login&lt;/button&gt;
+&lt;/form&gt;
+
+<i># ts</i>
+loginForm = new FormGroup({
+    user: new FormControl('',[Validators.required,Validators.email]),
+    pass: new FormControl('',[Validators.required,Validators.minLength(5)]),
+  })
+
+
+loginUser() {
+    console.warn(this.loginForm.value);
+  }
+</code></pre>
+
+
+<h3>6.1 Pipes</h3>
+<pre><code class="code-html">
+<i># html</i>
+&lt;ul&gt;
+  &lt;li&gt;{{message}}&lt;/li&gt;
+  &lt;li&gt;{{message | uppercase}}&lt;/li&gt;
+  &lt;li&gt;{{message | lowercase}}&lt;/li&gt;
+  &lt;li&gt;{{date | date}}&lt;/li&gt;
+  &lt;li&gt;{{date | date:'fullDate'}}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Pipes Advance&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;{{message | slice :3:8}}&lt;/li&gt;
+  &lt;li&gt;{{user | json}}&lt;/li&gt;
+  &lt;li&gt;{{user | json | uppercase}}&lt;/li&gt;
+  &lt;li&gt;{{003.3500 | number:'1.2-3'}}&lt;/li&gt;
+  &lt;li&gt;{{100 | currency}}&lt;/li&gt;
+  &lt;li&gt;{{100 | currency:'INR'}}&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
     </div>
 </body>
 
