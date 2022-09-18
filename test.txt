@@ -1,85 +1,41 @@
-
-
-
-
-
-
-
-
-import {
-    HTTP_INTERCEPTORS,
-    HttpEvent,
-    HttpErrorResponse,
-} from '@angular/common/http';
-
 import { Injectable } from '@angular/core';
+const TOKEN_KEY = 'auth-token';
+const USER_KEY = 'auth-user';
+@Injectable({
+  providedIn: 'root'
+})
+export class TokenServiceService {
 
-import {
-    HttpInterceptor,
-    HttpHandler,
-    HttpRequest,
-} from '@angular/common/http';
+  constructor() {}
 
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, filter, switchMap, take } from 'rxjs/operators';
-import { AuthServiceService } from '../services/auth-service.service';
-import { TokenServiceService } from '../services/token-service.service';
 
-const TOKEN_HEADER_KEY = 'Authorization'; 
+  public getToken(): string | null {
+    return window.sessionStorage.getItem(TOKEN_KEY);
+  }
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-    private isRefreshing = false;
-    private refreshTokenSubject: BehaviorSubject&lt;any&gt; = new BehaviorSubject&lt;any&gt;(
-        null
-    );
-    constructor(
-        private tokenService: TokenServiceService,
-        private authService: AuthServiceService
-    ) { }
-    intercept(
-        req: HttpRequest&lt;any&gt;,
-        next: HttpHandler
-    ): Observable&lt;HttpEvent&lt;Object&gt;&gt; {
-        let authReq = req;
-        const token = this.tokenService.getToken();
-        if (token != null) {
-            authReq = this.addTokenHeader(req, token);
-        }
-        return next.handle(authReq).pipe(
-            catchError((error) =&gt; {
-                //console.log(error);
-               // console.log(error.error.message);
-                if (
-                    error instanceof HttpErrorResponse &&
-                    //!authReq.url.includes('authorization-service/login') &&
-                    //error.status === 403
-                    error.error.message == "Invalid token"
-                ) {
-                    alert("Session TimeOut. Login Agian!");
-                    this.logout();
-                    window.location.href = '/login';
-                    return throwError(error);
-                    // this.handle401Error(authReq, next);
-                }
-                return throwError(error);
-            })
-        );
+  public saveToken(token: string): void {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
+  }
+
+  
+  public getUser(): any {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
     }
-    
-    private addTokenHeader(request: HttpRequest&lt;any&gt;, token: string) {
-        /* for Spring Boot back-end */
-        return request.clone({
-            headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token),
-        });
-    }
+    return {};
+  }
+  
 
-    logout(): void {
-        this.tokenService.signOut();
-        window.location.reload();
-    }
+  public saveUser(user: any): void {
+    window.sessionStorage.removeItem(USER_KEY);
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
+
+
+  signOut(): void {
+    window.sessionStorage.clear();
+  }
+
 }
-
-export const authInterceptorProviders = [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-];
