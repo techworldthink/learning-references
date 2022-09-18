@@ -8,8 +8,23 @@
 
 
 
-&lt;a routerLink=""&gt;Home&lt;/a&gt;
-&lt;a routerLink="about"&gt;About&lt;/a&gt;
-&lt;a routerLink="user"&gt;User&lt;/a&gt;
+onSubmit(dataFromForm:any) {
+    if (!this.formData.valid) {
+      this.errorMessage = 'Invalid consumer form';
+      return;
+    }
 
-&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    console.log(dataFromForm);
+    return this.consumerService.createBusiness(dataFromForm).subscribe(
+      (data: any) =&gt; {
+        console.log(data);
+        this.response = data.message;
+        this.errorMessage = "";
+      },
+      (error: any) =&gt; {
+        this.response = "";
+        if (error.error.error != null) this.errorMessage = error.error.error;
+        else this.errorMessage = error.error.message;
+      }
+    );
+  }

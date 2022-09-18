@@ -211,6 +211,41 @@ const routes: Routes = [
 </code></pre>
 
 
+<h3>8.1 Http - get - post - put - delete</h3>
+<pre><code class="code-html">
+<i># service file</i>
+getEmployees():Observable&lt;Employee[]&gt;{
+  return this.http.get&lt;Employee[]&gt;("http://localhost:8080/employees");
+}
+
+addEmployee(employee:Employee):Observable&lt;Employee&gt;{
+  return this.http.post&lt;Employee&gt;("http://localhost:8080/employees",employee);
+}
+
+updateEmployee(employee:Employee):Observable&lt;Employee&gt;{
+  return this.http.put&lt;Employee&gt;("http://localhost:8080/employees/"+employee.id,employee);
+}
+
+deleteEmployee(id:number):Observable&lt;Employee&gt;{
+  return this.http.delete&lt;Employee&gt;("http://localhost:8080/employees/"+id);
+}
+
+<i># ts file</i>
+public errorMessage: String = '';
+onSubmit(dataFromForm:any) {
+  console.log(dataFromForm);
+  return this.consumerService.createBusiness(dataFromForm).subscribe(
+    (data: any) =&gt; {
+      console.log(data);
+    },
+    (error: any) =&gt; {
+      if (error.error.error != null) this.errorMessage = error.error.error;
+      else this.errorMessage = error.error.message;
+    }
+  );
+}
+</code></pre>
+
     </div>
 </body>
 
