@@ -1,0 +1,17 @@
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  &lt;h3 *ngFor="let each of users"&gt;{{each}}&lt;/h3&gt;
+
+
+  &lt;div *ngFor="let each of userDetails"&gt;
+    &lt;h4&gt;{{each.name}} - {{each.email}} - {{each.phone}}&lt;/h4&gt;
+  &lt;/div&gt;

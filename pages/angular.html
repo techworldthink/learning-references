@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>angular</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body">
+        <h2>Angular</h2>
+
+
+        <h3>1.1 Installation</h3>
+<pre><code>
+<i># To install the Angular CLI</i>
+npm install -g @angular/cli
+
+</code></pre>
+
+<h3>1.2 Settings</h3>
+<pre><code>
+<i># To enable execution of PowerShell scripts</i>
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+<i># if npm install failed?</i>
+npm config set legacy-peer-deps true
+</code></pre>
+
+<h3>1.3 Create a workspace and initial application</h3>
+<pre><code>
+<i># To create a new workspace</i>
+ng new my-app
+</code></pre>
+
+<h3>1.4 Run</h3>
+<pre><code>
+<i># Run the application</i>
+ng serve --open
+</code></pre>
+
+<h3>2.1 Commands</h3>
+<pre><code>
+<i># create component</i>
+ng generate component component-name
+ng g c component-name
+
+<i># create module</i>
+ng generate module module-name 
+ng g m module-name
+
+<i># create service</i>
+ng generate service service-name 
+ng g s service-name
+</code></pre>
+
+
+<h3>3.1 IF</h3>
+<pre><code class="code-html">
+<i># Simple if else condition</i>
+&lt;h2 *ngIf="show; then ifBlock2 else elseBlock2"&gt;I am techworldthink&lt;/h2&gt;
+&lt;ng-template #ifBlock2&gt;
+  &lt;h2&gt;Sign in first&lt;/h2&gt;
+&lt;/ng-template&gt;
+&lt;ng-template #elseBlock2&gt;
+  &lt;h2&gt;Sign in first&lt;/h2&gt;
+&lt;/ng-template&gt;
+</code></pre>
+
+<h3>3.2 For</h3>
+<pre><code class="code-html">
+<i># Simple for loop - html</i>
+&lt;h3 *ngFor="let each of users"&gt;{{each}}&lt;/h3&gt;
+&lt;div *ngFor="let each of userDetails"&gt;
+  &lt;h4&gt;{{each.name}} - {{each.email}} - {{each.phone}}&lt;/h4&gt;
+&lt;/div&gt;
+
+<i># Simple for loop - ts</i>
+users=['A','B','C'];
+  userDetails = [
+    {name:'A',email:'a@gmail.com',phone:'111'},
+    {name:'B',email:'b@gmail.com',phone:'222'},
+    {name:'C',email:'c@gmail.com',phone:'333'},
+  ];
+</code></pre>
+    </div>
+</body>
+
+</html>
