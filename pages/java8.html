@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 8 Features</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body">
+        <h2>Java 8 Features</h2>
+
+
+        <h3>1.1 Lambda Expressions</h3>
+<pre><code>
+<i># Represent one method interface using an expression</i>
+
+<i># An interface which has only one abstract method is called functional interface (@FunctionalInterface)</i>
+
+<i># It helps to iterate, filter and extract data from collection</i>
+
+<i># Lambda expression is treated as a function</i>
+
+<i># (argument-list) -&gt; {body}  </i>
+</code></pre>
+
+
+<h3>1.2 Lambda example</h3>
+<pre><code class="code-html">
+    @FunctionalInterface
+    interface Addable{  
+        int add(int a,int b);  
+    }  
+      
+    public class LambdaExpressionExample6 {  
+        public static void main(String[] args) {  
+              
+            // Lambda expression without return keyword.  
+            Addable ad1=(a,b)-&gt;(a+b);  
+            System.out.println(ad1.add(10,20));  
+              
+            // Lambda expression with return keyword.    
+            Addable ad2=(int a,int b)-&gt;{  
+                                return (a+b);   
+                                };  
+            System.out.println(ad2.add(100,200));  
+        }  
+    }  
+</code></pre>
+
+
+<h3>1.2 Lambda - List</h3>
+<pre><code class="code-html">
+    List&lt;String&gt; list=new ArrayList&lt;String&gt;();  
+    list.add("ankit");  
+    list.add("mayank");  
+    list.add("irfan");  
+    list.add("jai");  
+      
+    list.forEach(  
+        (n)-&gt;System.out.println(n)  
+    );     
+</code></pre>
+
+
+<h3>1.3 Lambda - comparator</h3>
+<pre><code class="code-html">
+    Collections.sort(list,(p1,p2)-&gt;{  
+        return p1.name.compareTo(p2.name);  
+      });  
+</code></pre>
+
+<h3>1.4 Lambda  - filter</h3>
+<pre><code class="code-html">
+    // using lambda to filter data  
+    Stream&lt;Product&gt; filtered_data = list.stream().filter(p -&gt; p.price &gt; 20000);  
+
+</code></pre>
+
+
+
+    </div>
+</body>
+
+</html>
