@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Boot Best Practices</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="body">
+        <h2>Spring Boot Best Practices</h2>
+
+
+        <h3>1.1 Resource Identification</h3>
+<pre><code class="code-html">
+GET     - /users        - Returns a list of users
+GET     - users/{id}    - Returns a specific user
+POST    - /users        - Create a new user
+PUT     - /users/{id}   - Updates a specific user
+DELETE  - /users/{id}   - Deletes a specific user
+</code></pre>
+
+<h3>1.2 Use Proper HTTP Headers for Serialization Formats</h3>
+<pre><code class="code-html">
+Content-Type defines the request format.
+Accept defines a list of acceptable response formats.
+</code></pre>
+
+<h3>1.3 Dont't use GET</h3>
+<pre><code class="code-html">
+Get Method and Query Parameters Should Not Alter the State
+GET /activities/12?activate 
+GET /activities/12/activate
+</code></pre>
+
+<h3>1.4 HTTP Response Status Codes</h3>
+<pre><code class="code-html">
+200 OK
+201 Created
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+</code></pre>
+
+
+    </div>
+</body>
+
+</html>

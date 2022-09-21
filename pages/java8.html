@@ -80,6 +80,81 @@
 </code></pre>
 
 
+<h3>2.1 Method References</h3>
+<pre><code>
+<i># Used to refer method of functional interface</i>
+<i># Reference to a static/instance/constructor method.</i>
+<i># It is compact and easy form of lambda expression</i>
+</code></pre>
+
+<h3>2.1 Method References - Static Method</h3>
+<pre><code class="code-html">
+    <i># ContainingClass::staticMethodName</i>
+
+    interface Sayable{  
+        void say();  
+    }  
+
+    public class MethodReference {  
+        public static void saySomething(){  
+            System.out.println("Hello, this is static method.");  
+        }  
+        public static void main(String[] args) {  
+            // Referring static method  
+            Sayable sayable = MethodReference::saySomething;  
+            // Calling interface method  
+            sayable.say();  
+        }  
+    }  
+</code></pre>
+
+<h3>2.2 Method References - Instance Method</h3>
+<pre><code class="code-html">
+    <i># containingObject::instanceMethodName </i>
+
+    interface Sayable{  
+        void say();  
+    }  
+
+    public class InstanceMethodReference {  
+        public void saySomething(){  
+            System.out.println("Hello, this is non-static method.");  
+        }  
+        public static void main(String[] args) {  
+            // Creating object  
+            InstanceMethodReference methodReference = new InstanceMethodReference(); 
+                // Referring non-static method using reference  
+                Sayable sayable = methodReference::saySomething;  
+                sayable.say();  
+
+                // Referring non-static method using anonymous object  
+                Sayable sayable2 = new InstanceMethodReference()::saySomething;  
+                sayable2.say();  
+        }  
+    }  
+</code></pre>
+
+<h3>2.3 Method References - Constructor</h3>
+<pre><code class="code-html">
+    <i># ClassName::new  </i>
+
+    interface Messageable{  
+        Message getMessage(String msg);  
+    }  
+
+    class Message{  
+        Message(String msg){  
+            System.out.print(msg);  
+        }  
+    }  
+    
+    public class ConstructorReference {  
+        public static void main(String[] args) {  
+            Messageable hello = Message::new;  
+            hello.getMessage("Hello");  
+        }  
+    }   
+</code></pre>
 
     </div>
 </body>
