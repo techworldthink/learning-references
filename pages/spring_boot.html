@@ -13,10 +13,59 @@
         <h2>Spring Boot</h2>
 
 
-        <h3>1.1 To create a project</h3>
-<pre><code>
-<i>create project skelton</i>
-https://start.spring.io/
+        <h3>1.1 Java bean validations</h3>
+<pre><code class="code-html">
+<i class="red"># Entity</i>
+
+@NotNull
+@Size
+@Min 
+@Max 
+@Email 
+@NotEmpty 
+@NotBlank
+
+<i class="red"># POM</i>
+<i>
+&lt;dependency&gt; 
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; 
+    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt; 
+&lt;/dependency&gt;
+</i>
+
+<i class="red"># Exception Handler</i>
+<i>
+    import java.util.HashMap;
+    import java.util.Map;
+    
+    import org.springframework.http.HttpHeaders;
+    
+    import org.springframework.http.HttpStatus;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.validation.FieldError;
+    import org.springframework.web.bind.MethodArgumentNotValidException;
+    import org.springframework.web.bind.annotation.ControllerAdvice;
+    import org.springframework.web.context.request.WebRequest;
+    import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+    
+    @ControllerAdvice
+    public class ValidationHandler extends ResponseEntityExceptionHandler{
+        
+        @Override
+        protected ResponseEntity&lt;Object&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                HttpHeaders headers, HttpStatus status, WebRequest request) {
+            
+            Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();
+            ex.getBindingResult().getAllErrors().forEach((error) -&gt;{
+                
+                String fieldName = ((FieldError) error).getField();
+                String message = error.getDefaultMessage();
+                errors.put(fieldName, message);
+            });
+            return new ResponseEntity&lt;Object&gt;(errors, HttpStatus.BAD_REQUEST);
+        }
+    }    
+</i>
 </code></pre>
 
 
