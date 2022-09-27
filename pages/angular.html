@@ -407,6 +407,25 @@ export class TokenServiceService {
 </code></pre>
 
 
+<h3>10.1 Bootstrap</h3>
+<pre><code>
+<i># To install bootstrap and jquery</i>
+npm install bootstrap --save
+npm install jquery --save
+npm install popper.js
+
+<i># To use bootstrap and jquery.</i>
+<i># Include this in angular.json file</i>
+"styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
+            ],
+"scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+</code></pre>
+
     </div>
 </body>
 
