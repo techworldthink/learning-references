@@ -128,16 +128,37 @@ getData(data: NgForm) {
 &lt;form [formGroup]="loginForm" (ngSubmit)="loginUser()"&gt;
   &lt;input type="text" placeholder="Name" formControlName="user"/&gt;
   &lt;br /&gt;
-  &lt;span *ngIf="user && user.invalid && user.touched"&gt;this input field is not valid&lt;/span&gt;
-  &lt;br /&gt;
   &lt;input type="password" placeholder="Password" formControlName="pass"/&gt;
-  &lt;br /&gt;
-  &lt;span *ngIf="pass && pass.invalid && pass.touched"&gt;this input field is not valid&lt;/span&gt;
   &lt;br /&gt;
   &lt;button &gt;Login&lt;/button&gt;
 &lt;/form&gt;
 
 <i># ts</i>
+loginForm !: FormGroup;
+
+constructor(
+  private _fb: FormBuilder
+) {
+  this.dataForm();
+}
+
+dataForm() {
+  this.loginForm = this._fb.group({
+    user: [
+      '',
+      Validators.compose([
+        Validators.required,
+      ]),
+    ],
+    pass: [
+      '',
+      Validators.compose([
+        Validators.required,
+      ]),
+    ],
+  });
+}
+
 loginUser() {
     console.warn(this.loginForm.value);
   }
