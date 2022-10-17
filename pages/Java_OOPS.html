@@ -1,0 +1,254 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Classes</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        p > i {
+            display: block;
+            font-style: normal;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        b{
+            color: rgb(255, 132, 0);
+        }
+        table{
+            width: 100%;
+            background-color: white;
+            padding: 10px;
+           text-align: center;
+            box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+        }
+        td:nth-child(1){
+            text-align: left;
+        }
+        td{
+            padding: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <h2>Java Classes</h2>
+
+        <h3>1.1 Class & Object</h3>
+        <p>
+            <i>A Class is a template for objects</i>
+            <i>An Object is an instance of a class</i>
+        </p>
+<pre><code>
+<i># To create a class</i>
+public class Main{
+    int a = 1;
+}
+
+<i># To create an object</i>
+Main obj = new Main();
+
+<i># Access attributes</i>
+System.out.println(obj.a);
+</code></pre>
+
+
+<h3>1.2 Constructors</h3>
+<p>
+    <i>Special method</i>
+    <i>Used to initialize objects</i>
+    <i>It doesn't have return type</i>
+</p>
+<pre><code>
+<i># To create a class</i>
+public class Main{
+    int a = 1;
+
+    <i># No Argument Constructor</i>
+    public Main(){}
+
+    <i># Parameterized constructor</i>
+    public Main(int value){
+        this.a = value;
+    }
+}
+</code></pre>
+
+
+<h3>2.1 Java Modifiers -  Access Modifiers</h3>
+<p>
+    <b>Class Level</b>
+    <i>public - accessible by any other class</i>
+    <i>default - accessible by classes in the same package</i>
+    <i></i>
+    <b>Attributes , methods, constructors Level</b>
+
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>default</th>
+        <th>private</th>
+        <th>protected</th>
+        <th>public</th>
+    </tr>
+    <tr>
+        <td>same class</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+        <td>yes</td>
+    </tr>
+    <tr>
+        <td>same package subclass</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+    </tr>
+    <tr>
+        <td>same package non-subclass</td>
+        <td>yes</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+    </tr>
+    <tr>
+        <td>different package subclass</td>
+        <td>no</td>
+        <td>no</td>
+        <td>yes</td>
+        <td>yes</td>
+    </tr>
+    <tr>
+        <td>same package non-subclass</td>
+        <td>no</td>
+        <td>no</td>
+        <td>no</td>
+        <td>yes</td>
+    </tr>
+</table>
+
+
+<h3>2.1 Java Modifiers -  Non-Access Modifiers</h3>
+<p>
+    <b>Class Level</b>
+    <i>final - can't be inherited by other classes</i>
+    <i>abstract - can't be used to create objects. to access, it must be inherited from another class.</i>
+    <i></i>
+    <b>Attributes and methods</b>
+    <i>final - can't be overidden/modified</i>
+    <i>static - attributes and methods belongs to the class, rather than an object</i>
+    <i>abstract - can be only used in an abstract class, can only be used on methods. this method does not have a body</i>
+    <i>transient - attributes and methods are skipped when serializing the object containing them</i>
+    <i>synchronized - method can only be accessed by one thread at a time</i>
+    <i>volatile - the value of an attribute is not cached thread-locally , and is always read from the main memory</i>
+</p>
+
+<h3>3.1 Encapsulation</h3>
+<p>
+    <i>Make sensitive data hidden from users</i>
+    <i>Increased security of data</i>
+    <i>To achieve this...</i>
+    <i>Declare class attributes as private</i>
+    <i>provide public getter/setter</i>
+</p>
+
+<h3>4.1 Composition</h3>
+<p>
+    <i>The composition is a design technique in java to implement a has-a relationship.</i>
+    <i>Composition allows the reuse of code</i>
+    <i>We have to favour Composition over Inheritance</i>
+</p>
+<pre><code>
+    <i># example</i>
+
+    public class Job{
+
+    }
+
+    public class Person{
+        private Job job;
+    }
+    </code></pre>
+
+    <h3>5.1 Inheritance</h3>
+<p>
+    <i>Inherit attributes and methods from one class to another</i>
+    <i>use <strong>extends</strong> keyword</i>
+</p>
+<pre><code>
+    <i># Single</i>
+    public class Job{}
+    public class Person extends Job{}
+
+    <i># Multi Level</i>
+    public class Location{}
+    public class Job extends Location{}
+    public class Person extends Job{}
+
+    <i># Hierarchical Level</i>
+    public class Job
+    public class User extends Job{}
+    public class Manager extends Job{}
+    </code></pre>
+
+    <h3>6.1 Polymorphism</h3>
+<p>
+    <i>The word “polymorphism” means having many forms.</i>
+    <i>Static Binding (or Compile time) Polymorphism, e.g., Method Overloading</i>
+    <i>Dynamic Binding (or Runtime) Polymorphism, e.g., Method overriding</i>
+</p>
+<pre><code>
+    <i># Method Overloading</i>
+    public class MethodOverloading {
+        void view(int a){
+            System.out.println(a);
+        }
+        void view(int a,int b){
+            System.out.println(a+" "+b);
+        }
+        public static void main(String args[]){
+            MethodOverloading obj = new MethodOverloading();
+            obj.view(0);
+            obj.view(0, 0);
+        }
+    }
+    </code></pre>
+    <pre><code>
+        <i># Method Overriding</i>
+        class Job {
+            void viewJob() {
+                System.out.println("None");
+            }
+        }
+        
+        class Manager extends Job {
+            @Override
+            void viewJob() {
+                System.out.println("Manager");
+            }
+        }
+        
+        class Programmer extends Job {
+            @Override
+            void viewJob() {
+                System.out.println("Programmer");
+            }
+        }
+        
+        public class MethodOverriding {
+            public static void main(String args[]) {
+                Job manager = new Manager();
+                Job programmer = new Programmer();
+                manager.viewJob();
+                programmer.viewJob();
+            }
+        
+        }
+        </code></pre>
+    </div>
+</body>
+
+</html>
