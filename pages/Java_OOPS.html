@@ -7,26 +7,36 @@
     <title>Java Classes</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <style>
-        p > i {
+        p>i {
             display: block;
             font-style: normal;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
-        b{
+
+        b {
             color: rgb(255, 132, 0);
         }
-        table{
+
+        table {
             width: 100%;
             background-color: white;
             padding: 10px;
-           text-align: center;
+            text-align: center;
             box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
         }
-        td:nth-child(1){
+
+        td:nth-child(1) {
             text-align: left;
         }
-        td{
+
+        td {
             padding: 6px;
+        }
+
+        li {
+            color: gray;
+            font-size: 19px;
+            padding: 4px;
         }
     </style>
 </head>
@@ -40,7 +50,7 @@
             <i>A Class is a template for objects</i>
             <i>An Object is an instance of a class</i>
         </p>
-<pre><code>
+        <pre><code>
 <i># To create a class</i>
 public class Main{
     int a = 1;
@@ -54,13 +64,13 @@ System.out.println(obj.a);
 </code></pre>
 
 
-<h3>1.2 Constructors</h3>
-<p>
-    <i>Special method</i>
-    <i>Used to initialize objects</i>
-    <i>It doesn't have return type</i>
-</p>
-<pre><code>
+        <h3>1.2 Constructors</h3>
+        <p>
+            <i>Special method</i>
+            <i>Used to initialize objects</i>
+            <i>It doesn't have return type</i>
+        </p>
+        <pre><code>
 <i># To create a class</i>
 public class Main{
     int a = 1;
@@ -76,92 +86,94 @@ public class Main{
 </code></pre>
 
 
-<h3>2.1 Java Modifiers -  Access Modifiers</h3>
-<p>
-    <b>Class Level</b>
-    <i>public - accessible by any other class</i>
-    <i>default - accessible by classes in the same package</i>
-    <i></i>
-    <b>Attributes , methods, constructors Level</b>
+        <h3>2.1 Java Modifiers - Access Modifiers</h3>
+        <p>
+            <b>Class Level</b>
+            <i>public - accessible by any other class</i>
+            <i>default - accessible by classes in the same package</i>
+            <i></i>
+            <b>Attributes , methods, constructors Level</b>
 
-</p>
-<table>
-    <tr>
-        <th></th>
-        <th>default</th>
-        <th>private</th>
-        <th>protected</th>
-        <th>public</th>
-    </tr>
-    <tr>
-        <td>same class</td>
-        <td>yes</td>
-        <td>yes</td>
-        <td>yes</td>
-        <td>yes</td>
-    </tr>
-    <tr>
-        <td>same package subclass</td>
-        <td>yes</td>
-        <td>no</td>
-        <td>yes</td>
-        <td>yes</td>
-    </tr>
-    <tr>
-        <td>same package non-subclass</td>
-        <td>yes</td>
-        <td>no</td>
-        <td>yes</td>
-        <td>yes</td>
-    </tr>
-    <tr>
-        <td>different package subclass</td>
-        <td>no</td>
-        <td>no</td>
-        <td>yes</td>
-        <td>yes</td>
-    </tr>
-    <tr>
-        <td>same package non-subclass</td>
-        <td>no</td>
-        <td>no</td>
-        <td>no</td>
-        <td>yes</td>
-    </tr>
-</table>
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>default</th>
+                <th>private</th>
+                <th>protected</th>
+                <th>public</th>
+            </tr>
+            <tr>
+                <td>same class</td>
+                <td>yes</td>
+                <td>yes</td>
+                <td>yes</td>
+                <td>yes</td>
+            </tr>
+            <tr>
+                <td>same package subclass</td>
+                <td>yes</td>
+                <td>no</td>
+                <td>yes</td>
+                <td>yes</td>
+            </tr>
+            <tr>
+                <td>same package non-subclass</td>
+                <td>yes</td>
+                <td>no</td>
+                <td>yes</td>
+                <td>yes</td>
+            </tr>
+            <tr>
+                <td>different package subclass</td>
+                <td>no</td>
+                <td>no</td>
+                <td>yes</td>
+                <td>yes</td>
+            </tr>
+            <tr>
+                <td>same package non-subclass</td>
+                <td>no</td>
+                <td>no</td>
+                <td>no</td>
+                <td>yes</td>
+            </tr>
+        </table>
 
 
-<h3>2.1 Java Modifiers -  Non-Access Modifiers</h3>
-<p>
-    <b>Class Level</b>
-    <i>final - can't be inherited by other classes</i>
-    <i>abstract - can't be used to create objects. to access, it must be inherited from another class.</i>
-    <i></i>
-    <b>Attributes and methods</b>
-    <i>final - can't be overidden/modified</i>
-    <i>static - attributes and methods belongs to the class, rather than an object</i>
-    <i>abstract - can be only used in an abstract class, can only be used on methods. this method does not have a body</i>
-    <i>transient - attributes and methods are skipped when serializing the object containing them</i>
-    <i>synchronized - method can only be accessed by one thread at a time</i>
-    <i>volatile - the value of an attribute is not cached thread-locally , and is always read from the main memory</i>
-</p>
+        <h3>2.1 Java Modifiers - Non-Access Modifiers</h3>
+        <p>
+            <b>Class Level</b>
+            <i>final - can't be inherited by other classes</i>
+            <i>abstract - can't be used to create objects. to access, it must be inherited from another class.</i>
+            <i></i>
+            <b>Attributes and methods</b>
+            <i>final - can't be overidden/modified</i>
+            <i>static - attributes and methods belongs to the class, rather than an object</i>
+            <i>abstract - can be only used in an abstract class, can only be used on methods. this method does not have
+                a body</i>
+            <i>transient - attributes and methods are skipped when serializing the object containing them</i>
+            <i>synchronized - method can only be accessed by one thread at a time</i>
+            <i>volatile - the value of an attribute is not cached thread-locally , and is always read from the main
+                memory</i>
+        </p>
 
-<h3>3.1 Encapsulation</h3>
-<p>
-    <i>Make sensitive data hidden from users</i>
-    <i>Increased security of data</i>
-    <i>To achieve this...</i>
-    <i>Declare class attributes as private</i>
-    <i>provide public getter/setter</i>
-</p>
+        <h3>3.1 Encapsulation</h3>
+        <p>
+            <i>Make sensitive data hidden from users</i>
+            <i>Increased security of data</i>
+            <i>To achieve this...</i>
+            <i>Declare class attributes as private</i>
+            <i>provide public getter/setter</i>
+        </p>
 
-<h3>4.1 Composition</h3>
-<p>
-    <i>The composition is a design technique in java to implement a has-a relationship.</i>
-    <i>Composition allows the reuse of code</i>
-    <i>We have to favour Composition over Inheritance</i>
-</p>
-<pre><code>
+        <h3>4.1 Composition</h3>
+        <p>
+            <i>The composition is a design technique in java to implement a has-a relationship.</i>
+            <i>Composition allows the reuse of code</i>
+            <i>We have to favour Composition over Inheritance</i>
+        </p>
+        <pre><code>
     <i># example</i>
 
     public class Job{
@@ -173,12 +185,12 @@ public class Main{
     }
     </code></pre>
 
-    <h3>5.1 Inheritance</h3>
-<p>
-    <i>Inherit attributes and methods from one class to another</i>
-    <i>use <strong>extends</strong> keyword</i>
-</p>
-<pre><code>
+        <h3>5.1 Inheritance</h3>
+        <p>
+            <i>Inherit attributes and methods from one class to another</i>
+            <i>use <strong>extends</strong> keyword</i>
+        </p>
+        <pre><code>
     <i># Single</i>
     public class Job{}
     public class Person extends Job{}
@@ -194,13 +206,13 @@ public class Main{
     public class Manager extends Job{}
     </code></pre>
 
-    <h3>6.1 Polymorphism</h3>
-<p>
-    <i>The word “polymorphism” means having many forms.</i>
-    <i>Static Binding (or Compile time) Polymorphism, e.g., Method Overloading</i>
-    <i>Dynamic Binding (or Runtime) Polymorphism, e.g., Method overriding</i>
-</p>
-<pre><code>
+        <h3>6.1 Polymorphism</h3>
+        <p>
+            <i>The word “polymorphism” means having many forms.</i>
+            <i>Static Binding (or Compile time) Polymorphism, e.g., Method Overloading</i>
+            <i>Dynamic Binding (or Runtime) Polymorphism, e.g., Method overriding</i>
+        </p>
+        <pre><code>
     <i># Method Overloading</i>
     public class MethodOverloading {
         void view(int a){
@@ -216,7 +228,7 @@ public class Main{
         }
     }
     </code></pre>
-    <pre><code>
+        <pre><code>
         <i># Method Overriding</i>
         class Job {
             void viewJob() {
@@ -248,6 +260,137 @@ public class Main{
         
         }
         </code></pre>
+
+        <h3>7.1 Interface</h3>
+        <p>
+            <i>Defined as an abstract type, used to specify behaviour of a class.</i>
+            <i>Blueprint of a class.</i>
+            <i>It contains static constants and abstract methods</i>
+            <i>Represent IS-A relationship</i>
+        </p>
+        <pre><code>
+    <i>// A simple interface</i> 
+    interface In1 { 
+        
+        <i>// public, static and final </i>
+        final int a = 10; 
+      
+        <i>// public and abstract </i>
+        void display(); 
+    }
+</code></pre>
+
+        <h3>8.1 Object Class</h3>
+        <p>
+            <i>Object class is present in Java.lang</i>
+            <i>Every class in Java is directly or indirectly derived from the Object class.</i>
+            <i></i>
+            <i>Object class methods are</i>
+        <ul>
+            <li>toString();</li>
+            <li>hashCode();</li>
+            <li>equals(Object obj);</li>
+            <li>getClass();</li>
+            <li>finalize();</li>
+            <li>clone();</li>
+        </ul>
+        </p>
+        <pre><code>
+    class Book implements Cloneable{
+        int bookId;
+        String bookName;
+    
+        Book(int id, String name) {
+            this.bookId = id;
+            this.bookName = name;
+        }
+    
+        @Override
+        public String toString() {
+            return "Book Id : " + this.bookId + "  and Book Name : " + bookName;
+        }
+    
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+    
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == this)
+                return true;
+    
+            if (!(obj instanceof Book))
+                return false;
+    
+            Book getObj = (Book) obj;
+    
+            if (this.bookId != getObj.bookId)
+                return false;
+    
+            if (this.bookName.equals(getObj.bookName))
+                return false;
+    
+            return true;
+        }
+    }
+    
+    public class ObjectClassDemonstration {
+        public static void main(String args[]) throws CloneNotSupportedException {
+            Book book = new Book(1, "Sherlock Holmes");
+            System.out.println(book.toString());
+            System.out.println(book.hashCode());
+            System.out.println(book.getClass());
+    
+            Book clonesbook = (Book) book.clone();
+            System.out.println(clonesbook.toString());
+            System.out.println(clonesbook.hashCode());
+            System.out.println(clonesbook.equals(book));
+        }
+    }
+</code></pre>
+
+        <h3>9.1 Exceptions</h3>
+        <p>
+            <i>Runtime error handling mechanism.</i>
+            <br>
+            <i>
+                Default Exception Handling: Whenever inside a method, if an exception has occurred, the method creates
+                an Object known as an Exception Object and hands it off to the run-time system(JVM). The exception
+                object contains the name and description of the exception and the current state of the program where the
+                exception has occurred. Creating the Exception Object and handling it in the run-time system is called
+                throwing an Exception. There might be a list of the methods that had been called to get to the method
+                where an exception occurred. This ordered list of the methods is called Call Stack
+            </i>
+            <br>
+            <i>
+                The run-time system searches the call stack to find the method that contains a block of code that can
+                handle the occurred exception. The block of the code is called an Exception handler
+            </i>
+            <Br>
+            <i>
+                If the run-time system searches all the methods on the call stack and couldn’t have found the
+                appropriate handler, then the run-time system handover the Exception Object to the default exception
+                handler, which is part of the run-time system.
+            </i>
+        </p>
+
+        <h3>9.2 Exception handle</h3>
+<pre><code>
+    public class ExceptionHandling {
+        public static void main(String args[]) {
+            try {
+                System.out.println("try");
+                int a = 12 / 0;
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally {
+                System.out.println("Finally");
+            }
+        }
+    }
+</code></pre>
+
     </div>
 </body>
 
