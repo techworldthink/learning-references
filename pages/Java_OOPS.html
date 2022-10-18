@@ -40,6 +40,10 @@
             font-size: 19px;
             padding: 4px;
         }
+        img{
+            display: block;
+            margin: auto;
+        }
     </style>
 </head>
 
@@ -485,6 +489,44 @@ public class Main{
         <pre><code>
             Integer value = new Integer(13);
         </code></pre>
+
+        
+        <h3>11.1 Collections in Java</h3>
+        <p>
+            <i>is a framework.</i>
+            <i>provides an architecture to store and manipulate the group of objects.</i>
+            <i>operations - search,sort,insert,delete,manipulation</i>
+            <i>Interfaces - Set,List,Queue,Deque</i>
+            <i>Classes - ArrayList,LinkedList,Vector,PriorityQueue,HashSet,LinkedHashSet,TreeSet</i>
+            <i>java.util package contains all the classes and interfaces</i>
+            </p>
+            <img src="images/java_collections.jpg">
+
+
+            <h3>11.2 Iterator Interface</h3>
+            <p>
+                <i>Methods</i>
+                <ul>
+                    <li>public boolean hasNext();</li>
+                    <li>public Object next();</li>
+                    <li>public void remove();</li>
+                </ul>
+                </p>
+  <pre><code>
+    import java.util.*;
+
+    class JavaCollectionDemo {
+       public static void main(String args[]) {
+          ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+          list.add("abc");
+          list.add("abcb");
+          Iterator itr = list.iterator();
+          while (itr.hasNext()) {
+             System.out.println(itr.next());
+          }
+       }
+    }
+</code></pre>
     </div>
 </body>
 
