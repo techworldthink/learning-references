@@ -105,6 +105,139 @@
        }
     }
 </code></pre>
+
+        <h3>2.1 ArrayList</h3>
+        <p>
+        <ul>
+            <li>Implements List Interface</li>
+            <li>Maintains insertion order</li>
+            <li>Non-synchronized</li>
+            <li>Random access</li>
+            <li>Dynamic Array</li>
+        </ul>
+        </p>
+<pre><code>
+    import java.util.ArrayList;
+    import java.util.Iterator;
+    import java.util.List;
+    
+    public class ArrayListInteger {
+    
+      public static void main(String[] args) {
+    
+        // ArrayList&lt;Integer&gt; list_first = new ArrayList&lt;Integer&gt;();
+        List&lt;Integer&gt; list_first = new ArrayList&lt;Integer&gt;();
+        list_first.add(1);
+        list_first.add(2);
+        list_first.add(3);
+    
+        // array print
+        System.out.println("List : " + list_first.toString());
+    
+        // array size
+        System.out.println("Array size : " + list_first.size());
+    
+        // contain ?
+        if (list_first.contains(3)) {
+          System.out.println("List has the value");
+        } else {
+          System.out.print("List does not  have the value");
+        }
+    
+        // addAll
+        ArrayList&lt;Integer&gt; list_second = new ArrayList&lt;Integer&gt;();
+        list_second.add(4);
+        list_second.add(5);
+        list_second.add(6);
+        System.out.println("second list" + list_second.toString());
+    
+        list_first.addAll(list_second);
+        System.out.println("updated first list" + list_first.toString());
+    
+        // remove
+        list_first.remove(4);
+        System.out.println("updated first list (after remove)" + list_first.toString());
+    
+        // iterating
+        for (int i = 0; i &lt; list_first.size(); i++) {
+          System.out.println(list_first.get(i));
+        }
+    
+        // Iterating
+        Iterator itr = list_first.iterator();
+        while (itr.hasNext()) {
+          System.out.println(itr.next());
+        }
+    
+      }
+    }
+    </code></pre>
+
+        <h3>2.2 LinkedList</h3>
+        <p>
+        <ul>
+            <li>Implements Collection Interface</li>
+            <li>Maintains insertion order</li>
+            <li>Non-synchronized</li>
+            <li>Fast Manipulation</li>
+        </ul>
+        </p>
+<pre><code>
+    import java.util.ArrayList;
+    import java.util.LinkedList;
+    import java.util.List;
+    
+    public class LinkedListDemo {
+    
+      public static void main(String[] args) {
+    
+        Object objects[] = new Object[1000000];
+    
+        for (int i = 0; i &lt; objects.length; i++) {
+          objects[i] = new Object();
+        }
+        
+        // Arra
+        LinkedList&lt;Object&gt; list = new LinkedList();
+        long start = System.currentTimeMillis();
+        for (Object object : objects) {
+          list.add(objects);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Time taken : " + (end - start));
+        
+        // insert
+        start = System.currentTimeMillis();
+        list.set(2,new Object());
+        end = System.currentTimeMillis();
+        System.out.println("Time taken : " + (end - start));
+    
+      }
+    
+    }
+    </code></pre>
+
+        <h3>2.3 Vector</h3>
+        <p>
+        <ul>
+            <li>Similar to ArrayList</li>
+            <li>It contain many methods that are not the part of Collection framework</li>
+            <li>Synchronized</li>
+        </ul>
+        </p>
+        <pre><code>
+
+</code></pre>
+
+<h3>2.4 Set</h3>
+<p>
+<ul>
+    <li>Extends Collection Interface</li>
+    <li>Unordered elements</li>
+    <li>Doesn't allow to store duplicated elements</li>
+</ul>
+</p>
+
     </div>
 </body>
 
