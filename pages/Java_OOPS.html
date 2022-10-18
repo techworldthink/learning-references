@@ -28,7 +28,9 @@
         td:nth-child(1) {
             text-align: left;
         }
-
+        .center-table   td:nth-child(1) {
+            text-align: center;
+        }
         td {
             padding: 6px;
         }
@@ -376,7 +378,7 @@ public class Main{
         </p>
 
         <h3>9.2 Exception handle</h3>
-<pre><code>
+        <pre><code>
     public class ExceptionHandling {
         public static void main(String args[]) {
             try {
@@ -391,6 +393,98 @@ public class Main{
     }
 </code></pre>
 
+        <h3>9.3 User Defined Exceptions</h3>
+        <pre><code>
+    class ExperienceNotSatisfiedException extends Exception {
+        int year;
+    
+        public ExperienceNotSatisfiedException(int year) {
+            this.year = year;
+        }
+    
+        public String toString() {
+            return "Experiece of " + year + " years , not appplicable for this post.";
+        }
+    }
+    
+    public class UserDefinedExceptionsDemo {
+        void applyJob(int yearOfExperience) throws ExperienceNotSatisfiedException {
+            if (yearOfExperience &lt; 3)
+                throw new ExperienceNotSatisfiedException(yearOfExperience);
+        }
+    
+        public static void main(String args[]) throws CloneNotSupportedException, ExperienceNotSatisfiedException {
+            UserDefinedExceptionsDemo obj = new UserDefinedExceptionsDemo();
+            obj.applyJob(5);
+            obj.applyJob(1);
+        }
+    }
+</code></pre>
+
+        <h3>10.1 Wrapper Classes</h3>
+        <p>
+            <i>Wrapper class in java provides the mechanism to convert primitive data type into object is called boxing
+                and object into primitive data type is called unboxing.</i>
+
+            <i>Why?</i>
+        <ul>
+            <li>
+                Objects are needed if we wish to modify the arguments
+                passed into a method (because primitive types are passed by value).
+            </li>
+            <li>
+                The classes in java.util package handles only objects and hence wrapper classes help in this case also.
+            </li>
+            <li>
+                Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference
+                types) and not primitive types.
+            </li>
+            <li>
+                An object is needed to support synchronization in multithreading.
+            </li>
+        </ul>
+        </p>
+        <table class="center-table">
+            <tr>
+                <th>Primitive</th>
+                <th>Wrapper</th>
+            </tr>
+            <tr>
+                <td>char</td>
+                <td>Character</td>
+            </tr>
+            <tr>
+                <td>byte</td>
+                <td>Byte</td>
+            </tr>
+            <tr>
+                <td>short</td>
+                <td>Short</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>Integer</td>
+            </tr>
+            <tr>
+                <td>long</td>
+                <td>Long</td>
+            </tr>
+            <tr>
+                <td>float</td>
+                <td>Float</td>
+            </tr>
+            <tr>
+                <td>double</td>
+                <td>Double</td>
+            </tr>
+            <tr>
+                <td>boolean</td>
+                <td>Boolean</td>
+            </tr>
+        </table>
+        <pre><code>
+            Integer value = new Integer(13);
+        </code></pre>
     </div>
 </body>
 
