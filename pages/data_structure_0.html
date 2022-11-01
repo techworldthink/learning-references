@@ -14,7 +14,7 @@
 
 
         <h3>1.1 Algorithm Running times</h3>
-<pre><code class="code-html">
+        <pre><code class="code-html">
 O(n!)   - factorial complexity
 O(C<sup>n</sup>)   - exponential complexity, C - constant
 O(n<sup>k</sup>)   - polynomial , k&gt;1
@@ -24,6 +24,29 @@ O(logN) - logarithmic complexity
 O(1)    - constant time complexity
 </code></pre>
 
+        <h3>1.2 Complexity classes</h3>
+        <pre><code class="code-html">
+# Polynomial (P)
+<i>polynomial amount of time needed to solve.</i>
+<i>not all this problems have practical appliations , eg: bubblesort</i>
+
+# Non-deterministic polynomial (NP)
+<i>If we have a certain solution for the problem then we can verify the solution in polynomial Time.</i>
+<i>P is in NP</i>
+<i>problem P=NP ? in future it may happen</i>
+<i>Eg : Integer factorization (verfication is simple) , knapsack problem</i>
+
+# NP-complete 
+<i>Hardest problem in NP</i>
+<i>Can transform NP-C to NP in P time (use Karp-reduction)</i>
+<i>If we manage to to find a polynomial algorithm for NP-C problem then it means P=NP</i>
+<i>Eg : Graph coloring</i>
+
+# NP-hard
+<i>Problem that are atleast hard as the problem in NP class</i>
+<i>Can transform NP-H to NP-C in P time(use Karp-reduction)</i>
+<i>Eg : Halting problem , Travelling salesman problem</i>
+</code></pre>
 
     </div>
 </body>
