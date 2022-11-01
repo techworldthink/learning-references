@@ -56,7 +56,7 @@ pre code {
     line-height: 2;
 }
 
-pre{
+pre,.content-divs{
     box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
     padding: 10px;
 }
@@ -128,4 +128,9 @@ img {
 }
 .red{
     color: red;
+}
+
+.content-divs{
+    color: #1e243b;
+    font-size: 18px;
 }
