@@ -48,6 +48,68 @@ O(1)    - constant time complexity
 <i>Eg : Halting problem , Travelling salesman problem</i>
 </code></pre>
 
+
+<h3>2.1 O(N)    - linear time complexity</h3>
+<pre><code class="code-html">
+    class LinearTimeComplexity {
+
+        public static int getFirst(int[] nums) {
+            return nums[0];
+        }
+    
+        public static void main(String[] args) {
+    
+            int[] numbers = new int[10000000];
+    
+            for (int i = 0; i &lt; numbers.length; i++)
+                numbers[i] = i;
+    
+            long start = System.currentTimeMillis();
+            getFirst(numbers);
+            System.out.println("Time taken : " + (System.currentTimeMillis() - start));
+    
+        }
+    }
+</code></pre>
+
+<h3>2.2 O(logN) - logarithmic complexity</h3>
+<pre><code class="code-html">
+    class BinarySearch {
+
+        static int[] numbers = new int[10000000];
+    
+        public static int search(int[] nums, int item) {
+            int left = 0;
+            int right = nums.length - 1;
+    
+            while (left &lt;= right) {
+                int middle = (left + right) / 2;
+    
+                if (nums[middle] == item)
+                    return middle;
+                if (nums[middle] &lt; item)
+                    left = middle + 1;
+                else
+                    right = middle - 1;
+    
+            }
+    
+            return -1;
+        }
+    
+        public static void main(String[] args) {
+    
+            for (int i = 0; i &lt; numbers.length; i++)
+                numbers[i] = i;
+    
+            long start = System.currentTimeMillis();
+            System.out.println("Find ? " + search(numbers, 3454));
+            System.out.println("Time taken : " + (System.currentTimeMillis() - start));
+    
+        }
+    }
+</code></pre>
+
     </div>
 </body>
 
