@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Structure</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        .code-a{
+            text-align: left;
+            color: blue;
+            cursor: pointer;
+            display: unset;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,54 +81,15 @@ O(1)    - constant time complexity
     }
 </code></pre>
 
-<h3>2.2 O(logN) - logarithmic complexity</h3>
+<h3>2.1 Complexity case study</h3>
 <pre><code class="code-html">
-    class BinarySearch {
-
-        static int[] numbers = new int[10000000];
-    
-        public static int search(int[] nums, int item) {
-            int left = 0;
-            int right = nums.length - 1;
-    
-            while (left &lt;= right) {
-                int middle = (left + right) / 2;
-    
-                if (nums[middle] == item)
-                    return middle;
-                if (nums[middle] &lt; item)
-                    left = middle + 1;
-                else
-                    right = middle - 1;
-    
-            }
-    
-            return -1;
-        }
-    
-        public static void main(String[] args) {
-    
-            for (int i = 0; i &lt; numbers.length; i++)
-                numbers[i] = i;
-    
-            long start = System.currentTimeMillis();
-            System.out.println("Find ? " + search(numbers, 3454));
-            System.out.println("Time taken : " + (System.currentTimeMillis() - start));
-    
-        }
-    }
-</code></pre>
-
-<h3>2.3 O(N)   - linear time complexity</h3>
-<pre><code class="code-html">
-    <i>Linear Search</i>
+    <i>O(N)    - linear time complexity      -   <a class="code-a" href="">First element of array - JAVA</a></i>
+    <i>O(logN) - logarithmic complexity      -   <a class="code-a" href="https://github.com/techworldthink/Way-to-Coding/blob/main/Data%20Structure/JAVA/4_Search/Binary%20Search%20Java.java">Binary Search - JAVA</a></i>
+    <i>O(N)   - linear time complexity       -   <a class="code-a" href="">Linear Search - JAVA</a></i>
+    <i>2.4 O(N*N)   - linear time complexity -   <a class="code-a" href="">Bubble Sort - JAVA</a></i>
 
 </code></pre>
-<h3>2.4 O(N*N)   - linear time complexity</h3>
-<pre><code class="code-html">
-    <i>Bubble Sort</i>
-    
-</code></pre>
+
 
 <h3>3.1 Importance of DS</h3>
 <pre><code class="code-html">
@@ -128,6 +98,18 @@ O(1)    - constant time complexity
 
     <i>Kruskal's algorithm (spanning tree in a G(V,E)) - O(E logV)</i>
     <i>with priority queues(heaps) - O(E+logV)</i>
+    
+</code></pre>
+
+<h3>4.1 Abstract Data types</h3>
+<pre><code class="code-html">
+    <i>Define the behavior without the implementation</i>
+    <i>Eg: STACK - push() & pop()</i>
+
+    <i>STACKS - use Array / Linked List</i>
+    <i>QUEUE  - use Array / Linked List</i>
+    <i>PRIORITY QUEUE - Heap</i>
+    <i>ASSOCIATIVE ARRAYS - Hash Functions</i>
     
 </code></pre>
 
