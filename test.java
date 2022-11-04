@@ -1,34 +1,41 @@
-class BinarySearch {
+class LinearTimeComplexity {
 
-        static int[] numbers = new int[10000000];
+        static int[] bubbleSort(int[] arr) {
+                int n = arr.length;
+                int temp = 0;
+                for (int i = 0; i < n; i++) {
+                        for (int j = 1; j < (n - i); j++) {
+                                if (arr[j - 1] > arr[j]) {
+                                        // swap elements
+                                        temp = arr[j - 1];
+                                        arr[j - 1] = arr[j];
+                                        arr[j] = temp;
+                                }
 
-        public static int search(int[] nums, int item) {
-                int left = 0;
-                int right = nums.length - 1;
-
-                while (left <= right) {
-                        int middle = (left + right) / 2;
-
-                        if (nums[middle] == item)
-                                return middle;
-                        if (nums[middle] < item)
-                                left = middle + 1;
-                        else
-                                right = middle - 1;
-
+                        }
                 }
 
-                return -1;
+                return arr;
+        }
+
+        static void printArray(int[] arr) {
+                for (int i = 0; i < arr.length; i++)
+                        System.out.print(arr[i] + "\t");
         }
 
         public static void main(String[] args) {
 
+                int[] numbers = new int[10];
+
                 for (int i = 0; i < numbers.length; i++)
                         numbers[i] = i;
 
+                numbers[0] = 123;
+
                 long start = System.currentTimeMillis();
-                System.out.println("Find ? " + search(numbers, 3454));
+                numbers = bubbleSort(numbers);
                 System.out.println("Time taken : " + (System.currentTimeMillis() - start));
+                printArray(numbers);
 
         }
 }
