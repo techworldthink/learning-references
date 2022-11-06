@@ -1,40 +1,21 @@
-class ReverseArray {
 
-        public static int[] reverseArray(int[] nums) {
-                int lowIndex = 0;
-                int highIndex = nums.length - 1;
+class Container&lt;T&gt; {
+        T data;
 
-                while (lowIndex < highIndex) {
-                        swap(nums, lowIndex, highIndex);
-                        lowIndex++;
-                        highIndex--;
-                }
-                return nums;
+        void showType() {
+                System.out.println(data.getClass().getName());
         }
+}
 
-        private static void swap(int[] nums, int lowIndex, int highIndex) {
-                int temp = nums[lowIndex];
-                nums[lowIndex] = nums[highIndex];
-                nums[highIndex] = temp;
-        }
+class Problem {
 
         public static void main(String[] args) {
+                Container&lt;Integer&gt; obj_1 = new Container&lt;&gt;();
+                obj_1.data = 1;
+                obj_1.showType();
 
-                int[] data = new int[10];
-                // initialize array
-                for (int i = 0; i < data.length; i++)
-                        data[i] = i;
-
-                System.out.print("\nBefore reversing\n");
-                for (int i = 0; i < data.length; i++)
-                        System.out.print(data[i] + "\t");
-
-                // reverse O(N)
-                data = reverseArray(data);
-
-                System.out.print("\nAfter reversing\n");
-                for (int i = 0; i < data.length; i++)
-                        System.out.print(data[i] + "\t");
-
+                Container&lt;Double&gt; obj_2 = new Container&lt;&gt;();
+                obj_2.data = 1.1;
+                obj_2.showType();
         }
 }

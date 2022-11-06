@@ -238,6 +238,40 @@
 </ul>
 </p>
 
+<h3>3.1 Generics</h3>
+<p>
+<ul>
+    <li>Generics means parameterized types</li>
+    <li>create classes that work with different data types</li>
+    <li>Generics add that type of safety feature</li>
+    <li>The classes, which accept one or more parameters, ​are known as parameterized classes or parameterized types.</li>
+</ul>
+</p>
+<pre><code>
+class Container&lt;T&gt; {
+        T data;
+
+        void showType() {
+                System.out.println(data.getClass().getName());
+        }
+}
+
+class Problem {
+
+        public static void main(String[] args) {
+                Container&lt;Integer&gt; obj_1 = new Container&lt;&gt;();
+                obj_1.data = 1;
+                obj_1.showType();
+
+                Container&lt;Double&gt; obj_2 = new Container&lt;&gt;();
+                obj_2.data = 1.1;
+                obj_2.showType();
+        }
+}
+
+</code></pre>
+
+
     </div>
 </body>
 
