@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Framework</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        li {
+            color: #1d2558;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            margin: 0.5em 0;
+            color: #4d5968;
+            line-height: 2;
+            font-family: 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+            font-size: 18px;
+        }
+        pre{
+            background-color: black;
+            color: white;
+        }
+        .code-html{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <h2>Spring Framework</h2>
+
+
+
+        <h3>1.1 What?</h3>
+        <ul>
+            <li>An application framework and inversion of control container for the Java
+                platform</li>
+            <li>Open-source</li>
+            <li>Provides infrastructure support for developing Java applications</li>
+            <li>One of the most popular Java Enterprise Edition (Java EE) frameworks</li>
+            <li>Spring helps developers create high performing applications using plain old Java objects (POJOs)</li>
+            <li>Spring MVC is a part of the Spring framework that helps in handling HTTP requests and responses</li>
+            <li>On the other hand, Spring Boot is the extension of the Spring framework and provides a faster way to
+                build applications.</li>
+        </ul>
+
+        <h3>1.2 Dependency Injection - (Inversion of Control)</h3>
+        <ul>
+            <li>Dependency Injection (DI) is a design pattern that removes the dependency from the programming code so
+                that it can be easy to manage and test the application.</li>
+            <li>Dependency Injection makes our programming code loosely coupled</li>
+            <li>Spring IoC (Inversion of Control) Container is the core of Spring Framework. It creates the objects,
+                configures and assembles their dependencies, manages their entire life cycle. The Container uses
+                Dependency Injection(DI) to manage the components that make up the application.</li>
+            <li>How to Perform Dependency Injection in Spring?</li>
+            <ul>
+                <li>XML based Configuration (Beans)</li>
+                <li>Java Annotation-based Configurations (Autowiring)</li>
+            </ul>
+            <li>Different ways of Dependency Injection</li>
+            <ul>
+                <li>Constructor based Dependency Injection (@Component , @Autowired - is used on top of the class
+                    constructor)</li>
+
+                <pre><code class="code-html">
+    @Component
+    class A {}
+
+    class B {
+        private A obj;
+
+        @Autowired
+        public B(A obj) {
+                this.obj = obj;
+        }
+    }
+</code></pre>
+
+                <li>Setter based Dependency Injection (@Component , @Autowired is used on top of the class's setter
+                    method) </li>
+                <pre><code class="code-html">
+    @Component
+    class A {}
+
+    class B {
+        private A obj;
+
+        @Autowired
+        public setB(A obj) {
+                this.obj = obj;
+        }
+    }
+</code></pre>
+                <li>Field or Property-based Dependency Injection (@Autowired is used on top of the field or property)
+                </li>
+                <pre><code class="code-html">
+    @Component
+    class A {}
+
+    class B {
+        @Autowired
+        private A obj;
+    }
+</code></pre>
+            </ul>
+        </ul>
+
+
+
+        <!-- <pre><code class="code-html">
+Content-Type defines the request format.
+Accept defines a list of acceptable response formats.
+</code></pre> -->
+
+
+
+    </div>
+</body>
+
+</html>
