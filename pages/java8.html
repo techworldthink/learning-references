@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java 8 Features</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        .code-a {
+            text-align: left;
+            color: blue;
+            cursor: pointer;
+            display: unset;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +23,7 @@
 
 
         <h3>1.1 Lambda Expressions</h3>
-<pre><code>
+        <pre><code>
 <i># Represent one method interface using an expression</i>
 
 <i># An interface which has only one abstract method is called functional interface (@FunctionalInterface)</i>
@@ -27,8 +36,8 @@
 </code></pre>
 
 
-<h3>1.2 Lambda example</h3>
-<pre><code class="code-html">
+        <h3>1.2 Lambda example</h3>
+        <pre><code class="code-html">
     @FunctionalInterface
     interface Addable{  
         int add(int a,int b);  
@@ -51,8 +60,8 @@
 </code></pre>
 
 
-<h3>1.2 Lambda - List</h3>
-<pre><code class="code-html">
+        <h3>1.2 Lambda - List</h3>
+        <pre><code class="code-html">
     List&lt;String&gt; list=new ArrayList&lt;String&gt;();  
     list.add("ankit");  
     list.add("mayank");  
@@ -65,30 +74,30 @@
 </code></pre>
 
 
-<h3>1.3 Lambda - comparator</h3>
-<pre><code class="code-html">
+        <h3>1.3 Lambda - comparator</h3>
+        <pre><code class="code-html">
     Collections.sort(list,(p1,p2)-&gt;{  
         return p1.name.compareTo(p2.name);  
       });  
 </code></pre>
 
-<h3>1.4 Lambda  - filter</h3>
-<pre><code class="code-html">
+        <h3>1.4 Lambda - filter</h3>
+        <pre><code class="code-html">
     // using lambda to filter data  
     Stream&lt;Product&gt; filtered_data = list.stream().filter(p -&gt; p.price &gt; 20000);  
 
 </code></pre>
 
 
-<h3>2.1 Method References</h3>
-<pre><code>
+        <h3>2.1 Method References</h3>
+        <pre><code>
 <i># Used to refer method of functional interface</i>
 <i># Reference to a static/instance/constructor method.</i>
 <i># It is compact and easy form of lambda expression</i>
 </code></pre>
 
-<h3>2.1 Method References - Static Method</h3>
-<pre><code class="code-html">
+        <h3>2.1 Method References - Static Method</h3>
+        <pre><code class="code-html">
     <i># ContainingClass::staticMethodName</i>
 
     interface Sayable{  
@@ -108,8 +117,8 @@
     }  
 </code></pre>
 
-<h3>2.2 Method References - Instance Method</h3>
-<pre><code class="code-html">
+        <h3>2.2 Method References - Instance Method</h3>
+        <pre><code class="code-html">
     <i># containingObject::instanceMethodName </i>
 
     interface Sayable{  
@@ -134,8 +143,8 @@
     }  
 </code></pre>
 
-<h3>2.3 Method References - Constructor</h3>
-<pre><code class="code-html">
+        <h3>2.3 Method References - Constructor</h3>
+        <pre><code class="code-html">
     <i># ClassName::new  </i>
 
     interface Messageable{  
@@ -156,8 +165,8 @@
     }   
 </code></pre>
 
-<h3>3.1 groupingBy Collectors</h3>
-<pre><code class="code-html">
+        <h3>3.1 groupingBy Collectors</h3>
+        <pre><code class="code-html">
     <i># similar to the ‘GROUP BY' clause in the SQL language</i>
     <i>// data - list of Blogs</i>
     <i>// getCreatedOn - getter function for attribute of class Blogs </i>
@@ -172,113 +181,20 @@
 
 </code></pre>
 
-<pre><code class="code-html">
+        <pre><code class="code-html">
     <i>averagingInt(BlogPost::getLikes)</i>
     <i>summingInt(BlogPost::getLikes)</i>
     <i>maxBy(comparingInt(BlogPost::getLikes))</i>
     <i>summarizingInt(BlogPost::getLikes)</i>
 
+    <a class="code-a" href="https://github.com/techworldthink/Way-to-Coding/blob/main/JAVA/JAVA%208%20Features/GroupingBy%20Java.java">JAVA 8 - Grouping By</a>
+
 </code></pre>
 
-<pre><code class="code-html">
 
-    import java.util.Arrays;
-    import java.util.IntSummaryStatistics;
-    import java.util.List;
-    import java.util.Map;
-    import java.util.Set;
-    import java.util.stream.Collectors;
-    
-    class Blog {
-        String title;
-        BlogPostType type;
-        int views;
-    
-        Blog() {
-        }
-    
-        Blog(String title, BlogPostType type, int views) {
-            this.title = title;
-            this.type = type;
-            this.views = views;
-        }
-    
-        @Override
-        public String toString() {
-            return title;
-            // return "Title :: " + this.title + "\tType :: " + this.type + "\tViews :: " +
-            // this.views;
-        }
-    
-        public BlogPostType getType() {
-            return this.type;
-        }
-    
-        public int getViews() {
-            return this.views;
-        }
-    }
-    
-    enum BlogPostType {
-        POEM,
-        NEWS,
-        REVIEW,
-        GUIDE
-    }
-    
-    class GroupingByDemo {
-    
-        public static void main(String[] args) {
-    
-            Blog obj_1 = new Blog("A", BlogPostType.POEM, 123);
-            Blog obj_2 = new Blog("B", BlogPostType.NEWS, 13);
-            Blog obj_3 = new Blog("C", BlogPostType.POEM, 23);
-            Blog obj_4 = new Blog("D", BlogPostType.REVIEW, 1230);
-            Blog obj_5 = new Blog("E", BlogPostType.POEM, 56);
-    
-            List&lt;Blog&gt; data = Arrays.asList(obj_1, obj_2, obj_3, obj_4, obj_5);
-    
-            // print data
-            data.forEach(
-                    (each) -&gt; System.out.println(each));
-    
-            // group by - type
-            Map&lt;BlogPostType, List&lt;Blog&gt;&gt; byTypeData = data.stream().collect(Collectors.groupingBy(Blog::getType));
-            byTypeData.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-            // group by - type and get total count
-            Map&lt;BlogPostType, Long&gt; byCountData = data.stream()
-                    .collect(Collectors.groupingBy(Blog::getType, Collectors.counting()));
-            byCountData.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-            // group by - type and get total view
-            Map&lt;BlogPostType, Integer&gt; byViewata = data.stream()
-                    .collect(Collectors.groupingBy(Blog::getType, Collectors.summingInt(Blog::getViews)));
-            byViewata.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-            // group by - type - Modifying the Returned Map Value Type
-            Map&lt;BlogPostType, Set&lt;Blog&gt;&gt; byTypeDataReturnSet = data.stream()
-                    .collect(Collectors.groupingBy(Blog::getType, Collectors.toSet()));
-            byTypeDataReturnSet.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-            // group by multiple fields
-            Map&lt;BlogPostType, Map&lt;Integer, List&lt;Blog&gt;&gt;&gt; byTypeByViewsData = data.stream()
-                    .collect(Collectors.groupingBy(Blog::getType, Collectors.groupingBy(Blog::getViews)));
-            byTypeByViewsData.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-            // group by - type - Modifying the Returned Map Value Type
-            Map&lt;BlogPostType, IntSummaryStatistics&gt; summarizeData = data.stream()
-                    .collect(Collectors.groupingBy(Blog::getType, Collectors.summarizingInt(Blog::getViews)));
-            summarizeData.forEach(
-                    (key, value) -&gt; System.out.println(key + "\t" + value));
-    
-        }
-    }
+        <h3>4.1 forEach() method in Iterable interface</h3>
+        <pre><code class="code-html">
+<a class="code-a" href="https://github.com/techworldthink/Way-to-Coding/blob/main/JAVA/JAVA%208%20Features/ForEach%20in%20Java.java">JAVA 8 - foreach</a>
 
 </code></pre>
 
