@@ -1,27 +1,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>angular</title>
-    <link href="css/style.css" type="text/css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>angular</title>
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+  <style>
+        li {
+            color: #1d2558;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            margin: 0.5em 0;
+            color: #4d5968;
+            line-height: 2;
+            font-family: 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+            font-size: 18px;
+        }
+  </style>
 </head>
 
 <body>
-    <div class="body">
-        <h2>Angular</h2>
+  <div class="body">
+    <h2>Angular</h2>
+
+    <h3>0.0 Notes</h3>
+    <ul>
+      <li>EcmaScript is Standard & JS is implementation</li>
+      <li>TypeScript = JS + Strong typing</li>
+      <li>Interpolation refers to embedding expressions into marked up text. By default, interpolation uses the double
+        curly braces {{ and }} as delimiters</li>
+    </ul>
 
 
-        <h3>1.1 Installation</h3>
-<pre><code>
+    <h3>1.1 Installation</h3>
+    <pre><code>
 <i># To install the Angular CLI</i>
 npm install -g @angular/cli
 
 </code></pre>
 
-<h3>1.2 Settings</h3>
-<pre><code>
+    <h3>1.2 Settings</h3>
+    <pre><code>
 <i># To enable execution of PowerShell scripts</i>
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
@@ -29,20 +50,20 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 npm config set legacy-peer-deps true
 </code></pre>
 
-<h3>1.3 Create a workspace and initial application</h3>
-<pre><code>
+    <h3>1.3 Create a workspace and initial application</h3>
+    <pre><code>
 <i># To create a new workspace</i>
 ng new my-app
 </code></pre>
 
-<h3>1.4 Run</h3>
-<pre><code>
+    <h3>1.4 Run</h3>
+    <pre><code>
 <i># Run the application</i>
 ng serve --open
 </code></pre>
 
-<h3>2.1 Commands</h3>
-<pre><code>
+    <h3>2.1 Commands</h3>
+    <pre><code>
 <i># create component</i>
 ng generate component component-name
 ng g c component-name
@@ -56,9 +77,23 @@ ng generate service service-name
 ng g s service-name
 </code></pre>
 
+    <h3>2.2 Concept</h3>
+    <pre><code>
+<i># Basics</i>
+<i>  Components</i>
+<i>  Data Binding</i>
+<i>  Routing</i>
+<i>  Modules</i>
 
-<h3>3.1 IF</h3>
-<pre><code class="code-html">
+<i># Features</i>
+<i>  Forms & Validations</i>
+<i>  Rest API Calls</i>
+<i>  Dependency Injection</i>
+
+</code></pre>
+
+    <h3>3.1 IF</h3>
+    <pre><code class="code-html">
 <i># Simple if else condition</i>
 &lt;h2 *ngIf="show; then ifBlock2 else elseBlock2"&gt;I am techworldthink&lt;/h2&gt;
 &lt;ng-template #ifBlock2&gt;
@@ -69,8 +104,8 @@ ng g s service-name
 &lt;/ng-template&gt;
 </code></pre>
 
-<h3>3.2 For</h3>
-<pre><code class="code-html">
+    <h3>3.2 For</h3>
+    <pre><code class="code-html">
 <i># Simple for loop - html</i>
 &lt;h3 *ngFor="let each of users"&gt;{{each}}&lt;/h3&gt;
 &lt;div *ngFor="let each of userDetails"&gt;
@@ -86,8 +121,8 @@ users=['A','B','C'];
   ];
 </code></pre>
 
-<h3>4.1 Button Click</h3>
-<pre><code class="code-html">
+    <h3>4.1 Button Click</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;button (click)="changeColor()" &gt; Dark Mode &lt;/button&gt;
 
@@ -99,8 +134,8 @@ changeColor() {
 </code></pre>
 
 
-<h3>5.1 Form - Template Driven Form</h3>
-<pre><code class="code-html">
+    <h3>5.1 Form - Template Driven Form</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;form #basicForm="ngForm" (submit) = "getData(basicForm.value)"&gt;
   &lt;input type="text" ngModel name="user" placeholder="username" /&gt;
@@ -122,8 +157,8 @@ getData(data: NgForm) {
 </code></pre>
 
 
-<h3>5.2 Form - Reactive Form</h3>
-<pre><code class="code-html">
+    <h3>5.2 Form - Reactive Form</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;form [formGroup]="loginForm" (ngSubmit)="loginUser()"&gt;
   &lt;input type="text" placeholder="Name" formControlName="user"/&gt;
@@ -164,8 +199,8 @@ loginUser() {
   }
 </code></pre>
 
-<h3>5.3 Form - Reactive Form - validation</h3>
-<pre><code class="code-html">
+    <h3>5.3 Form - Reactive Form - validation</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;form [formGroup]="loginForm" (ngSubmit)="loginUser()"&gt;
   &lt;input type="text" placeholder="Name" formControlName="user"/&gt;
@@ -192,8 +227,8 @@ loginUser() {
 </code></pre>
 
 
-<h3>6.1 Pipes</h3>
-<pre><code class="code-html">
+    <h3>6.1 Pipes</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;ul&gt;
   &lt;li&gt;{{message}}&lt;/li&gt;
@@ -215,8 +250,8 @@ loginUser() {
 </code></pre>
 
 
-<h3>7.1 Routing</h3>
-<pre><code class="code-html">
+    <h3>7.1 Routing</h3>
+    <pre><code class="code-html">
 <i># html</i>
 &lt;a routerLink=""&gt;Home&lt;/a&gt;
 &lt;a routerLink="about"&gt;About&lt;/a&gt;
@@ -232,8 +267,8 @@ const routes: Routes = [
 </code></pre>
 
 
-<h3>8.1 Http - get - post - put - delete</h3>
-<pre><code class="code-html">
+    <h3>8.1 Http - get - post - put - delete</h3>
+    <pre><code class="code-html">
 <i># service file</i>
 getEmployees():Observable&lt;Employee[]&gt;{
   return this.http.get&lt;Employee[]&gt;("http://localhost:8080/employees");
@@ -267,8 +302,8 @@ onSubmit(dataFromForm:any) {
 }
 </code></pre>
 
-<h3>8.2 Http - header</h3>
-<pre><code class="code-html">
+    <h3>8.2 Http - header</h3>
+    <pre><code class="code-html">
 <i># service file</i>
 const httpOptions = {
   headers: new HttpHeaders({
@@ -290,8 +325,8 @@ login(id: string, password: string): Observable&lt;any&gt; {
 }
 </code></pre>
 
-<h3>8.3 Http - Authentication header - Interceptor</h3>
-<pre><code class="code-html">
+    <h3>8.3 Http - Authentication header - Interceptor</h3>
+    <pre><code class="code-html">
 <i># app.module.ts</i>
 providers: [
 SampleService1,
@@ -381,8 +416,8 @@ export const authInterceptorProviders = [
 </code></pre>
 
 
-<h3>9.1 Session storage - JWT Token</h3>
-<pre><code class="code-html">
+    <h3>9.1 Session storage - JWT Token</h3>
+    <pre><code class="code-html">
 <i># service file</i>
 import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
@@ -428,8 +463,8 @@ export class TokenServiceService {
 </code></pre>
 
 
-<h3>10.1 Bootstrap</h3>
-<pre><code>
+    <h3>10.1 Bootstrap</h3>
+    <pre><code>
 <i># To install bootstrap and jquery</i>
 npm install bootstrap --save
 npm install jquery --save
@@ -447,19 +482,7 @@ npm install popper.js
             ]
 </code></pre>
 
-    </div>
+  </div>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
