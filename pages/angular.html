@@ -7,17 +7,17 @@
   <title>angular</title>
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <style>
-        li {
-            color: #1d2558;
-            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-            font-size: 1em;
-            text-align: left;
-            margin: 0.5em 0;
-            color: #4d5968;
-            line-height: 2;
-            font-family: 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
-            font-size: 18px;
-        }
+    li {
+      color: #1d2558;
+      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      font-size: 1em;
+      text-align: left;
+      margin: 0.5em 0;
+      color: #4d5968;
+      line-height: 2;
+      font-family: 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+      font-size: 18px;
+    }
   </style>
 </head>
 
@@ -29,8 +29,11 @@
     <ul>
       <li>EcmaScript is Standard & JS is implementation</li>
       <li>TypeScript = JS + Strong typing</li>
-      <li>Interpolation refers to embedding expressions into marked up text. By default, interpolation uses the double
+      <li>Interpolation (1 way data binding) refers to embedding expressions into marked up text. By default, interpolation uses the double
         curly braces {{ and }} as delimiters</li>
+      <li>Event binding is used to handle the events raised by the user actions like button click, mouse movement,
+        keystrokes, etc. eg: (click)=handleLogin()</li>
+        <li>2 way Data binding , eg : [(ngModel)] = "data"</li>
     </ul>
 
 
@@ -482,6 +485,11 @@ npm install popper.js
             ]
 </code></pre>
 
+<h3>11.1 Error componant - undefined url pattern handle!</h3>
+<pre><code>
+<i># create an ErrorComponent & add the path to the last</i>
+{path:'**',component : ErrorComponent}
+</code></pre>
   </div>
 </body>
 
