@@ -29,11 +29,17 @@
     <ul>
       <li>EcmaScript is Standard & JS is implementation</li>
       <li>TypeScript = JS + Strong typing</li>
-      <li>Interpolation (1 way data binding) refers to embedding expressions into marked up text. By default, interpolation uses the double
+      <li>Interpolation (1 way data binding) refers to embedding expressions into marked up text. By default,
+        interpolation uses the double
         curly braces {{ and }} as delimiters</li>
       <li>Event binding is used to handle the events raised by the user actions like button click, mouse movement,
-        keystrokes, etc. eg: (click)=handleLogin()</li>
-        <li>2 way Data binding , eg : [(ngModel)] = "data"</li>
+        keystrokes, etc. <br> eg: (click)=handleLogin()</li>
+      <li>2 way Data binding , <br> eg : [(ngModel)] = "data"</li>
+      <li>Dependency Injection - <br> eg : <br>
+        import { Rourter } from '@angular/router';
+        <br>
+        constructor(router : Router){}
+      </li>
     </ul>
 
 
@@ -485,11 +491,58 @@ npm install popper.js
             ]
 </code></pre>
 
-<h3>11.1 Error componant - undefined url pattern handle!</h3>
-<pre><code>
+    <h3>11.1 Error componant - undefined url pattern handle!</h3>
+    <pre><code>
 <i># create an ErrorComponent & add the path to the last</i>
 {path:'**',component : ErrorComponent}
+
 </code></pre>
+
+<h3>11.2 Page redirect</h3>
+<pre><code>
+import { Rourter } from '@angular/router';
+constructor(private router : Router){}
+this.router.navigate(['welcome'])
+
+<i># pass parameter</i>
+this.router.navigate(['welcome',this.username])
+
+</code></pre>
+
+<h3>11.3 Url parameter passing</h3>
+<pre><code>
+<i># modules</i>
+{path:'login/:username',component : ErrorComponent}
+
+<i># component file</i>
+import { ActivatedRoute } from '@angular/router';
+constructor(private route : ActivatedRoute){}
+
+ngOnInit(){
+  console.log(this.route.snapshot.params['username']);
+}
+
+</code></pre>
+
+<h3>12.1 Class</h3>
+<pre><code>
+<i># create class</i>
+export class Todo {
+  constructor(
+    public id: number,
+    public description: string
+  ){
+
+  }
+}
+
+<i># list of Todo objects</i>
+todos = [
+new Todo(1,'test'),
+new Todo(2,'test')
+]
+</code></pre>
+
   </div>
 </body>
 
