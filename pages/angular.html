@@ -40,6 +40,7 @@
         <br>
         constructor(router : Router){}
       </li>
+      <li>href - will refresh the page!... use <strong>routerLink</strong> </li>
     </ul>
 
 
@@ -541,6 +542,29 @@ todos = [
 new Todo(1,'test'),
 new Todo(2,'test')
 ]
+</code></pre>
+
+
+<h3>13.1 Route Guard</h3>
+<pre><code>
+<i># create a service - routeGuard</i>
+<i># inside routeGuard - service file</i>
+import { CanActivate } from '@angular/router';
+
+export class RouteGuardService implements CanActivate{
+  canActivate(ActivatedRouteSnapshot,RouterStateSnapshot){
+    if(this.authService.isUserLoggedIn())
+      return true;
+    return false;
+  }
+}
+
+<i># routing module file</i>
+{
+  path: 'user-list', component: UserListComponent,
+  canActivate: [RouteGuardService],
+}
+
 </code></pre>
 
   </div>
