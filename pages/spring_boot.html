@@ -6,12 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Boot</title>
     <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        li {
+            color: #1d2558;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            margin: 0.5em 0;
+            color: #4d5968;
+            line-height: 2;
+            font-family: 'Nunito Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="body">
         <h2>Spring Boot</h2>
 
+        <h3>1.0 Annotation</h3>
+        <ul>
+            <li>
+                @SpringBootApplication=@ComponentScan+@EnableAutoConfiguration+@Configuration
+            </li>
+        </ul>
 
         <h3>1.1 Java bean validations</h3>
         <pre><code class="code-html">
@@ -69,6 +88,15 @@
 </code></pre>
 
 
+        <h3>2.1 Dispatcher Servlet?</h3>
+        <ul>
+            <li>
+                DispatcherServlet acts as the Front Controller for Spring-based web applications.
+            </li>
+            <li>The job of the DispatcherServlet is to take an incoming URI and find the right combination of handlers
+                (generally methods on Controller classes) and views (generally JSPs) that combine to form the page or
+                resource that's supposed to be found at that location.
+        </ul>
 
     </div>
 
