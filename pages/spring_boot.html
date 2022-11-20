@@ -98,6 +98,55 @@
                 resource that's supposed to be found at that location.
         </ul>
 
+        <h3>3.1 Goals</h3>
+        <ul>
+            <li>Build Quickly</li>
+            <ul>
+                <li>Spring initializr</li>
+                <li>Spring Boot Starter Projects</li>
+                <li>Spring Boot Auto Configurations</li>
+                <li>Spring Boot DevTools</li>
+            </ul>
+            <li>Be Production ready</li>
+            <ul>
+                <li>Logging</li>
+                <li>Different configuration for different environments (profile,ConfigurationProperties)</li>
+                <li>Monitoring (Spring Boot Actuator)</li>
+            </ul>
+        </ul>
+
+        <h3>3.1.1 Spring Boot Starter</h3>
+        <ul>
+            <li>spring-boot-starter-web</li>
+            <ul>
+                <li>org.springframework.boot:spring-boot-starter</li>
+                <li>org.springframework.boot:spring-boot-starter-tomcat</li>
+                <li>org.springframework.boot:spring-boot-starter-validation</li>
+                <li>com.fasterxml.jackson.core:jackson-databind</li>
+                <li>org.springframework:spring-web</li>
+                <li>org.springframework:spring-webmvc</li>
+            </ul>
+            <li>spring-boot-starter-test</li>
+            <li>spring-boot-starter-validation</li>
+            <li>spring-boot-starter-security</li>
+            <li>spring-boot-starter-data-jpa</li>
+            <li>spring-boot-starter-tomcat</li>
+            <li>spring-boot-starter-logging</li>
+        </ul>
+
+        <h3>3.1.2 Spring Boot Auto Configurations</h3>
+        <ul>
+            <li>Automated configuration for your app , decided based on</li>
+            <ul>
+                <li>which frameworks are in the Class path?</li>
+                <li>what is the existing configuration (Annotation ect)?</li>
+                <li>Eg: Spring Boot Starter Web</li>
+                <ul>
+                    <li>Dispatcher Servlet - (DispatcherServletAutoConfiguration)</li>
+                    <li>Default Error page - (ErrorMvcAutoConfiguration)</li>
+                </ul>
+            </ul>
+        </ul>
     </div>
 
 
