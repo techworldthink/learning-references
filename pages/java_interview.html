@@ -80,7 +80,45 @@
                     Code</a>
             </li>
         </ul>
+        <h3>1.4 Java doesn't support multiple inheritances.Why?</h3>
+        <ul>
+            <li>it can lead to diamond problem.</li>
+        </ul>
 
+        <h3>1.5 Object class methods</h3>
+        <ul>
+            <li>hashCode() - // return memory location of objects</li>
+            <li>finalize()</li>
+            <li>clone()</li>
+            <li>toString() - // return classname@hexadecimal_address</li>
+        </ul>
+
+        <h3>1.6 String immutability</h3>
+        <ul>
+            <li>Every time value changes, new memory loction will allocate and will store it there</li>
+            <li>If other variable with same string value created then , it reuse old memory location (memory efficient)</li>
+            <li>Thread Safe</li>
+            <li>Security</li>
+        </ul>
+
+        <h3>1.7 == and equals</h3>
+        <ul>
+            <li>== - check only object references in memory </li>
+            <li>.equals() - does the same as ==, overridden possible . But it string & enum it will do deep comparison</li>
+        </ul>
+
+        <h3>1.8 final and finally</h3>
+        <ul>
+            <li>final</li>
+            <ul>
+                <li>In primitive can't modify</li>
+                <li>In object decl - can't change obj ref.</li>
+                <li>In class - can't inherit</li>
+                <li>In class method - can't override method in chlid class</li>
+            </ul>
+            <li>Finally</li>
+            <li>try{} catch(){} finally{}</li>
+        </ul>
 
     </div>
 
